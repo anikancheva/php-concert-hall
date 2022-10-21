@@ -1,6 +1,6 @@
 <?php
 require_once "header.php";
-echo $_SESSION['user'];
+var_dump($_SESSION);
 
 ?>
 <style media="screen">
@@ -109,6 +109,25 @@ echo $_SESSION['user'];
 
 </style>
 <!-- Login Form -->
+<main>
+<div class="background">
+    <div class="shape"></div>
+    <div class="shape"></div>
+</div>
+<div class="login">
+    <form id="loginForm" method="post" action="login" onsubmit="validate(event)">
+        <label for="email">Email:
+            <input type="text" name="email" value="">
+        </label><br>
+        <p id="errEmail" style="display: none; color: red">* Invalid email!</p>
+        <label for="password">Password:
+            <input type="password" name="password" value="">
+        </label><br>
+        <p id="errPass" style="display: none; color: red">* Password can't be empty!</p>
+        <input type="submit" value="Login">
+    </form>
+</div>
+</main>
 <script>
     function validate(e) {
         e.preventDefault();
@@ -144,31 +163,12 @@ echo $_SESSION['user'];
         let xhttp = new XMLHttpRequest();
         xhttp.open('POST', 'login');
         xhttp.onreadystatechange = function () {
-            if (xhttp.readyState === 4 && xhttp.status===200) {
+            if (xhttp.readyState === 4) {
                 let host = 'http://localhost/php-concert-hall/';
                 window.location.href = xhttp.responseURL.replace(host, "");
             }
         }
-        xhttp.send(body);
+        xhttp.send(JSON.stringify(body));
     }
 
 </script>
-<main>
-<div class="background">
-    <div class="shape"></div>
-    <div class="shape"></div>
-</div>
-<div class="login">
-    <form id="loginForm" method="post" action="" onsubmit="validate(event)">
-        <label for="email">Email:
-            <input type="text" name="email" value="">
-        </label><br>
-        <p id="errEmail" style="display: none; color: red">* Invalid email!</p>
-        <label for="password">Password:
-            <input type="password" name="password" value="">
-        </label><br>
-        <p id="errPass" style="display: none; color: red">* Password can't be empty!</p>
-        <input type="submit" value="Login">
-    </form>
-</div>
-</main>

@@ -1,16 +1,18 @@
 <?php
 require_once "ini.php";
 
+$_POST = json_decode(file_get_contents("php://input"), true);
+var_dump($_POST);
 
-$_POST = json_decode(file_get_contents('php://input'), true);
 
 $email = $_POST["email"];
-$pass = $_POST["password"];
+$password = $_POST["password"];
 
 
 /** @var \src\services\UserService $userService */
 
-$result=$userService->login($email, $pass);
+$result=$userService->login($email, $password);
+var_dump($result);
 if ($result) {
     $_SESSION['user']=$result->getId();
     header("Location: home");

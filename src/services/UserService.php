@@ -61,4 +61,7 @@ class UserService
 
     }
 
+    public function findUser($email) : User {
+       return $this->userRepo->findByEmail($email);
+    }
 }

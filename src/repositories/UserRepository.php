@@ -26,6 +26,7 @@ class UserRepository
         $resultSet = $stm->fetch(PDO::FETCH_ASSOC);
 
         $user = new User($resultSet["first_name"], $resultSet["last_name"], $resultSet["email"], $resultSet["_password"], $resultSet["_role"]);
+        $user->setId($resultSet["id"]);
         return $user;
     }
 
@@ -37,6 +38,7 @@ class UserRepository
 
         if ($resultSet) {
             $user = new User($resultSet["first_name"], $resultSet["last_name"], $resultSet["email"], $resultSet["_password"], $resultSet["_role"]);
+            $user->setId($resultSet["id"]);
             return $user;
         }
         return null;
