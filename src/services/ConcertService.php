@@ -36,4 +36,8 @@ class ConcertService
     public function edit(Concert $concert){
         $this->concertRepo->update($concert);
     }
+
+    public function getAllConcerts() : array{
+       return $this->concertRepo->findAll();
+    }
 }

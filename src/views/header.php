@@ -1,11 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="">
+    <title>Concert Hall</title>
+</head>
 <?php
-session_start();
+
 $logged = isset($_SESSION['user']);
 
-$userNav = '<li class="user"><a href="/">Profile</a></li>
-            <li class="user"><a href="logout">Logout</a></li>';
-$guestNav = '<li class="guest"><a href="login-form">Login</a></li>
-            <li class="guest"><a href="register-form">Register</a></li>';
+$userNav = '<li class="user"><a href="../src/views/home.php">Profile</a></li>
+            <li class="user"><a href="../../src/services/logout.php">Logout</a></li>';
+$guestNav = '<li class="guest"><a href="src/views/login.php">Login</a></li>
+            <li class="guest"><a href="src/views/register.php">Register</a></li>';
 
 ?>
 <style>
@@ -42,7 +51,7 @@ $guestNav = '<li class="guest"><a href="login-form">Login</a></li>
 <header>
     <!-- Navigation -->
     <nav class="menu">
-        <a class="logo" href="home"><img src="" height="50" alt="logopic"></a>
+        <a class="logo" href="/home"><img src="" height="50" alt="logopic"></a>
         <ul>
             <?php if ($logged) {
                 echo $userNav;

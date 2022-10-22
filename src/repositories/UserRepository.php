@@ -40,8 +40,10 @@ class UserRepository
             $user = new User($resultSet["first_name"], $resultSet["last_name"], $resultSet["email"], $resultSet["_password"], $resultSet["_role"]);
             $user->setId($resultSet["id"]);
             return $user;
+        }else{
+            return null;
         }
-        return null;
+
     }
 
     public function save(User $user): bool
