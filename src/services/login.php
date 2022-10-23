@@ -15,8 +15,7 @@ $result = userService->login($email, $password);
 
 if ($result) {
     $_SESSION['user'] = $result->getId();
-    header("Location:../../src/views/home.php");
+    header("HTTP/ 200");
 } else {
-    header("Location:../..src/views/login.php");
+    header("HTTP/ 400");
 }
-?>

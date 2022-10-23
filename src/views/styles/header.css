@@ -1,29 +1,19 @@
 body{
-    background: linear-gradient(90deg, #FFC87C 0%, #FD6E11 100%);
+    background: linear-gradient(90deg, #FFC87C 0%, #ffaf72 100%);
 }
-
-header{
-
-}
-
 .menu li {
     display: inline-block;
-    margin: 5pt;
-    padding: 5pt 5pt;
-    font-size: 15pt;
+    margin: 3pt;
+    padding: 3pt 3pt;
+    font-size: 12pt;
+    border: 1pt solid #d83600;
     border-radius: 5pt;
-    background: radial-gradient(#FFD2AC 0%, #f8e5d8 100%);
+    background: radial-gradient(#fbcb98 0%, #fca35e 100%);
 }
 
 a{
     text-decoration: none;
-    color: #f66200;
+    font-family: 'Poppins',sans-serif;
+    color:  #d83600;
     margin: 10pt;
-
-}
-
-.logo{
-    display: block;
-    float: left;
-    padding-right: 400pt;
 }

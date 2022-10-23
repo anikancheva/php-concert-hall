@@ -13,6 +13,11 @@ function validate(e) {
     let errPass = document.getElementById('errPass');
     let errConfPass = document.getElementById('errConfPass');
 
+    let userExistsErr = document.getElementById('userExists');
+    if (userExistsErr.style.display === '') {
+        userExistsErr.style.display = 'none';
+    }
+
     let validEmail = false;
     let validPass = false;
     let validConfPass = false;
@@ -61,6 +66,8 @@ function submit(body) {
     regRequest.onreadystatechange = function () {
         if (regRequest.readyState === 4 && regRequest.status===200) {
             window.location.href = "../views/home.php";
+        }else if(regRequest.readyState === 4 && regRequest.status===400){
+            document.getElementById('userExists').style.display = '';
         }
     }
     regRequest.send(JSON.stringify(body));

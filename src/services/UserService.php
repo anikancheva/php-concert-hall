@@ -3,18 +3,18 @@
 namespace src\services;
 
 use src\models\Concert;
-use src\models\exceptions\LoginException;
 use src\models\User;
 use src\repositories\ConcertRepository;
 use src\repositories\UserRepository;
 
 class UserService
 {
-    private $userRepo;
-    private $concertRepo;
+    private UserRepository $userRepo;
+    private ConcertRepository $concertRepo;
 
     /**
-     * @param UserRepository $repo
+     * @param UserRepository $userRepo
+     * @param ConcertRepository $concertRepo
      */
     public function __construct(UserRepository $userRepo, ConcertRepository $concertRepo)
     {
@@ -56,7 +56,7 @@ class UserService
 
     public function buyTicket(User $user, Concert $concert): bool
     {
-        $userId = $this->userRepo->findByEmail($user->getEmail())->getId();
+        $userId = $this->findUser($user->getEmail())->getId();
         $concertId = $this->concertRepo->findByArtist($concert)->getId();
         if ($userId && $concertId) {
             $this->userRepo->buy($userId, $concertId);
@@ -71,7 +71,7 @@ class UserService
         return $this->userRepo->findByEmail($email);
     }
 
-    public function getConcerts(int $userId)
+    public function getConcerts(int $userId): array
     {
         return $this->concertRepo->findAllByUser($userId);
 

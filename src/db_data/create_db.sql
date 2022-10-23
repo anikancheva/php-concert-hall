@@ -34,12 +34,12 @@ VALUES
 
 INSERT INTO concerts (artist, venue, dates, price, img)
 VALUES 
-	("Twenty One Pilots", "TD Garden", "2022-05-12", 130.00, "src/views/images/21pilots.jpeg"),
-	("Dua Lipa", "Madison Square Garden", "2022-05-21", 150.00, "src/views/images/dualipa.jpeg"),
-	("Grandson", "Ultra Stadium", "2022-05-23", 90.00, "src/views/images/grandson.jpeg"),
-	("Landa Del Rey", "Desert Festival", "2022-06-06", 100.00, "src/views/images/lanadelrey.jpeg"),
-	("Paramore", "BlueHall", "2022-06-17", 120.00, "src/views/images/paramore.jpeg"),
-	("Rammstein", "Germany", "2022-06-25", 160.00, "src/views/images/rammstein.jpeg");
+	("Twenty One Pilots", "TD Garden", "2022-05-12", 130.00, "images/21pilots.jpeg"),
+	("Dua Lipa", "Madison Square Garden", "2022-05-21", 150.00, "images/dualipa.jpg"),
+	("Grandson", "Ultra Stadium", "2022-05-23", 90.00, "images/grandson.jpg"),
+	("Landa Del Rey", "Desert Festival", "2022-06-06", 100.00, "images/lanadelrey.jpg"),
+	("Paramore", "BlueHall", "2022-06-17", 120.00, "images/paramore.jpg"),
+	("Rammstein", "Germany", "2022-06-25", 160.00, "images/rammstein.jpg");
 
 
 INSERT INTO users_concerts

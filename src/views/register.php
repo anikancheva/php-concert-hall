@@ -17,7 +17,7 @@ session_start();
     <!-- Navigation -->
     <nav class="menu">
         <ul>
-            <li><a href="">Dashboard</a></li>
+            <li><a href="home.php">Dashboard</a></li>
             <?php if ( isset($_SESSION['user'])) {
                 echo '<li class="user"><a href="profile.php">Profile</a></li>
                         <li class="user"><a href="../services/logout.php">Logout</a></li>';
@@ -57,7 +57,9 @@ session_start();
             <input type="password" name="conf-pass" value="">
         </label><br>
         <p id="errConfPass" style="display: none; color: red">* Passwords don't match!</p>
-        <input type="submit" value="Register">
+        <p id="userExists" style="display: none; color: red">* Email already exists!</p>
+        <input type="submit" value="Register"><br>
+        <p id="redirect">You already have a profile? <a href="login.php">Login here</a></p>
     </form>
 </div>
 </main>

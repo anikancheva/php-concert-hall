@@ -16,7 +16,7 @@ session_start();
     <!-- Navigation -->
     <nav class="menu">
         <ul>
-            <li><a href="">Dashboard</a></li>
+            <li><a href="home.php">Dashboard</a></li>
             <?php if ( isset($_SESSION['user'])) {
                 echo '<li class="user"><a href="profile.php">Profile</a></li>
                         <li class="user"><a href="../services/logout.php">Logout</a></li>';

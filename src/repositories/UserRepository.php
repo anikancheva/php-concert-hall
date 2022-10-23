@@ -68,13 +68,13 @@ class UserRepository
             ->execute([$user->getPassword(), $user->getId()]);
     }
 
-    public function buy(int $userId, int $concId): bool
+    public function buy(int $userId, int $concertId): bool
     {
         $stm = $this->PDO->prepare("INSERT INTO users_concerts VALUES (?, ?)");
-        return $stm->execute([$userId, $concId]);
+        return $stm->execute([$userId, $concertId]);
     }
 
-    private function hashPassword(string $password)
+    private function hashPassword(string $password) : string
     {
         return password_hash($password, PASSWORD_ARGON2I);
     }

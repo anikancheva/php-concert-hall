@@ -8,7 +8,7 @@ use src\repositories\ConcertRepository;
 
 class ConcertService
 {
-    private $concertRepo;
+    private ConcertRepository $concertRepo;
 
     /**
      * @param ConcertRepository $concertRepo
@@ -33,7 +33,8 @@ class ConcertService
         return false;
     }
 
-    public function edit(Concert $concert){
+    public function edit(Concert $concert): void
+    {
         $this->concertRepo->update($concert);
     }
 

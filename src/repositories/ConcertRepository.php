@@ -28,13 +28,16 @@ class ConcertRepository
         return $concert;
     }
 
-    public function findByArtist(Concert $concert) : Concert{
+    public function findByArtist(Concert $concert) : ?Concert{
         $stm= $this->PDO->prepare("SELECT * FROM concerts WHERE artist=?");
         $stm->execute([$concert->getArtist()]);
         $resultSet=$stm->fetch(PDO::FETCH_ASSOC);
 
-        $concert=new Concert($resultSet["artist"], $resultSet["venue"], $resultSet["dates"], $resultSet["price"], $resultSet["img"]);
-        return $concert;
+        if(!$resultSet){
+            return null;
+        }else {
+            return new Concert($resultSet["artist"], $resultSet["venue"], $resultSet["dates"], $resultSet["price"], $resultSet["img"]);
+        }
     }
 
     public function findAll() : array{
@@ -51,7 +54,10 @@ class ConcertRepository
 
     }
 
-    /** @param Concert $concert */
+    /**
+     * @param Concert $concert
+     * @return bool
+     */
     public function save(Concert $concert) :bool
     {
         $stm=$this->PDO->prepare("INSERT INTO concerts (artist, venue, dates, price, img) 

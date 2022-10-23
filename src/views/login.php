@@ -17,7 +17,7 @@ session_start();
     <!-- Navigation -->
     <nav class="menu">
         <ul>
-            <li><a href="">Dashboard</a></li>
+            <li><a href="home.php">Dashboard</a></li>
             <?php if ( isset($_SESSION['user'])) {
                 echo '<li class="user"><a href="profile.php">Profile</a></li>
                         <li class="user"><a href="../services/logout.php">Logout</a></li>';
@@ -45,7 +45,9 @@ session_start();
                 <input type="password" name="password" value="">
             </label><br>
             <p id="errPass" style="display: none; color: red">* Password can't be empty!</p>
-            <input type="submit" value="Login">
+            <p id="noUser" style="display: none; color: red">* Invalid username or password!</p>
+            <input type="submit" value="Login"><br>
+            <p id="redirect"> You don't have a profile? <a href="register.php">Register Here</a></p>
         </form>
     </div>
 </main>

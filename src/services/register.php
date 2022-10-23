@@ -18,9 +18,7 @@ $user = new User($fName, $lName, $email, $password, "USER");
 $result=userService->register($user);
 if ($result) {
     $_SESSION['user']=$result->getId();
-    //header("Location: ../views/home.php");
+    header("HTTP/ 200");
 } else {
-    header("Location: ../views/register.php");
+    header("HTTP/ 400");
 }
-
-?>
