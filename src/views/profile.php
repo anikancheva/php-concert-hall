@@ -1,5 +1,7 @@
 <?php
 session_start();
+
+$user=$_SESSION['username'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,19 +19,13 @@ session_start();
     <div class="navbar">
         <a href="home.php">Dashboard</a>
         <div class="right-nav">
-            <?php if (isset($_SESSION['user'])) {
-                echo '<a href="profile.php">Profile</a>
-                        <a href="../services/logout.php">Logout</a>';
-            } else {
-                echo '<a href="login.php">Login</a>
-                    <a href="register.php">Register</a>';
-            }
-            ?>
+            <a id="greeting">Hello, <?=$user?>!</a>
+            <a href="profile.php">Profile</a>
+            <a href="../services/logout.php">Logout</a>
         </div>
     </div>
 </header>
 <!-- User Profile -->
-<p>Hello, !</p>
 <div class="user-events">
     <p>My events:</p>
     <ul>

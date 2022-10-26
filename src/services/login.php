@@ -20,6 +20,7 @@ if ($result) {
         header("HTTP/ 200");
     }else {
         $_SESSION['user'] = $result->getId();
+        $_SESSION['username'] = $result->getFirstName();
         header("HTTP/ 202");
     }
 

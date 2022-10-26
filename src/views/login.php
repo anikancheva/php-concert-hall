@@ -10,23 +10,13 @@ session_start();
     <link rel="stylesheet" href="styles/login.css">
     <link rel="stylesheet" href="styles/header.css">
     <script src="../web/validateLogin.js"></script>
-    <title>Concert Hall</title>
+    <title>Concert Hall-Login</title>
 </head>
 <body>
 <header>
     <!-- Navigation -->
     <div class="navbar">
-        <a href="home.php">Dashboard</a>
-        <div class="right-nav">
-            <?php if (isset($_SESSION['user'])) {
-                echo '<a href="profile.php">Profile</a>
-                        <a href="../services/logout.php">Logout</a>';
-            } else {
-                echo '<a href="login.php">Login</a>
-                    <a href="register.php">Register</a>';
-            }
-            ?>
-        </div>
+        <a href="home.php">Back</a>
     </div>
 </header>
 <!-- Login Form -->
@@ -47,7 +37,7 @@ session_start();
             <p id="errPass" style="display: none; color: red">* Password can't be empty!</p>
             <p id="noUser" style="display: none; color: red">* Invalid username or password!</p>
             <input type="submit" value="Login"><br>
-            <p id="redirect"> You don't have a profile? <a href="register.php">Register Here</a></p>
+            <p id="redirect"> You don't have a profile? <a href="register.php">Register here</a></p>
         </form>
     </div>
 </main>

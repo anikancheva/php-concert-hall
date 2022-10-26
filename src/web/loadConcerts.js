@@ -1,13 +1,14 @@
-function getAll() {
+function getAll(loggedUser) {
     fetch("http://localhost/php-concert-hall/src/services/loadConcerts.php")
         .then(resp => resp.json())
-        .then(data => updateDashboard(data));
+        .then(data => updateDashboard(data, loggedUser));
 }
 
-function updateDashboard(concerts) {
+function updateDashboard(concerts, user) {
     let list = document.getElementById("dashboard");
     list.replaceChildren();
-    for (let concert=0; concert<3; concert++) {
+    let cards= user? concerts.length : 3;
+    for (let concert=0; concert<cards; concert++) {
         let item = document.createElement('li');
 
         let artist = document.createElement('p');
@@ -31,13 +32,15 @@ function updateDashboard(concerts) {
 
 
         let moreBtn = document.createElement('button');
-        moreBtn.textContent = 'Show more';
+        moreBtn.textContent = 'Details';
         moreBtn.id='accordionBtn';
         moreBtn.addEventListener('click', showMore);
 
         item.append(artist, image, venue, dates, price, moreBtn);
         list.appendChild(item);
 
+        let prompt=document.getElementById('prompt');
+        prompt.style.display= user? 'none':'';
     }
 }
 
@@ -53,11 +56,11 @@ function showMore(e) {
         venue.style.display='';
         dates.style.display='';
         price.style.display='';
-        btn.textContent='Show less';
+        btn.textContent='Hide';
     }else {
         venue.style.display='none';
         dates.style.display='none';
         price.style.display='none';
-        btn.textContent='Show more';
+        btn.textContent='Details';
     }
 }

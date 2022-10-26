@@ -56,7 +56,7 @@ class UserService
 
     public function buyTicket(User $user, Concert $concert): bool
     {
-        $userId = $this->findUser($user->getEmail())->getId();
+        $userId = $this->findUserByEmail($user->getEmail())->getId();
         $concertId = $this->concertRepo->findByArtist($concert)->getId();
         if ($userId && $concertId) {
             $this->userRepo->buy($userId, $concertId);
@@ -66,7 +66,12 @@ class UserService
 
     }
 
-    public function findUser($email): User
+    public function findUserById($id): User
+    {
+        return $this->userRepo->findById($id);
+    }
+
+    public function findUserByEmail($email): User
     {
         return $this->userRepo->findByEmail($email);
     }

@@ -10,23 +10,13 @@ session_start();
     <link rel="stylesheet" href="styles/register.css">
     <link rel="stylesheet" href="styles/header.css">
     <script src="../web/validateRegister.js"></script>
-    <title>Concert Hall</title>
+    <title>Concert Hall-Register</title>
 </head>
 <body>
 <header>
     <!-- Navigation -->
     <div class="navbar">
-        <a href="home.php">Dashboard</a>
-        <div class="right-nav">
-            <?php if (isset($_SESSION['user'])) {
-                echo '<a href="profile.php">Profile</a>
-                        <a href="../services/logout.php">Logout</a>';
-            } else {
-                echo '<a href="login.php">Login</a>
-                    <a href="register.php">Register</a>';
-            }
-            ?>
-        </div>
+        <a href="home.php">Back</a>
     </div>
 </header>
 <!-- Register Form -->

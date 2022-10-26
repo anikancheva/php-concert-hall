@@ -1,10 +1,12 @@
 body{
-    background: linear-gradient(90deg, #FFC87C 0%, #ffaf72 100%);
+    background: linear-gradient(90deg, #f8dcc5 0%, #f9ce97 100%);
 }
 
 .navbar {
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.80);
     overflow: hidden;
+    border-radius: 3pt;
+    margin-bottom: 50pt;
 }
 
 .navbar a{
@@ -16,10 +18,21 @@ body{
 }
 
 .navbar a:hover {
-    background-color: rgba(229, 96, 0, 0.81);
-    color: #fbcb98;
+    background-color: #d83600;
+    color: white;
 }
 
 .right-nav {
     float: right;
+}
+
+#greeting {
+    margin-right: 10pt;
+    font-style: italic;
+    color: #992300;
+}
+
+#greeting:hover {
+    background-color: white;
+    color: #d83600;
 }
