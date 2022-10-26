@@ -1,19 +1,25 @@
 body{
     background: linear-gradient(90deg, #FFC87C 0%, #ffaf72 100%);
 }
-.menu li {
-    display: inline-block;
-    margin: 3pt;
-    padding: 3pt 3pt;
-    font-size: 12pt;
-    border: 1pt solid #d83600;
-    border-radius: 5pt;
-    background: radial-gradient(#fbcb98 0%, #fca35e 100%);
+
+.navbar {
+    background-color: white;
+    overflow: hidden;
 }
 
-a{
+.navbar a{
+    float: left;
     text-decoration: none;
     font-family: 'Poppins',sans-serif;
     color:  #d83600;
-    margin: 10pt;
+    padding: 10pt;
+}
+
+.navbar a:hover {
+    background-color: rgba(229, 96, 0, 0.81);
+    color: #fbcb98;
+}
+
+.right-nav {
+    float: right;
 }

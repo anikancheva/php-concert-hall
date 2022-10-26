@@ -7,26 +7,26 @@ function getAll() {
 function updateDashboard(concerts) {
     let list = document.getElementById("dashboard");
     list.replaceChildren();
-    for (let concert of concerts) {
+    for (let concert=0; concert<3; concert++) {
         let item = document.createElement('li');
 
         let artist = document.createElement('p');
-        artist.textContent = concert.artist;
+        artist.textContent = concerts[concert].artist;
         artist.className='name';
 
         let image = document.createElement('img');
-        image.src = concert.img;
+        image.src = concerts[concert].img;
 
         let venue = document.createElement('p');
-        venue.textContent = concert.venue;
+        venue.textContent = concerts[concert].venue;
         venue.style.display = 'none';
 
         let dates = document.createElement('p');
-        dates.textContent = concert.dates;
+        dates.textContent = concerts[concert].dates;
         dates.style.display = 'none';
 
         let price = document.createElement('p');
-        price.textContent = '$'+concert.price;
+        price.textContent = '$'+concerts[concert].price;
         price.style.display = 'none';
 
 

@@ -38,11 +38,17 @@ function submit(body) {
     let loginReq = new XMLHttpRequest();
     loginReq.open('POST', '../services/login.php');
     loginReq.onreadystatechange = function () {
-        if (loginReq.readyState === 4 && loginReq.status === 200) {
-            window.location.href = "../views/home.php";
-        } else if (loginReq.readyState === 4 && loginReq.status === 400) {
-            document.getElementById('noUser').style.display = '';
+        if (loginReq.readyState === 4) {
+            if(loginReq.status === 200){
+                window.location.href = "../views/admin-page.php";
+            } else if(loginReq.status === 202){
+                window.location.href = "../views/home.php";
+            } else if (loginReq.status === 400){
+                document.getElementById('noUser').style.display = '';
+            }
         }
+
+
     }
     loginReq.send(JSON.stringify(body));
 }

@@ -14,8 +14,15 @@ $result = userService->login($email, $password);
 
 
 if ($result) {
-    $_SESSION['user'] = $result->getId();
-    header("HTTP/ 200");
+    $isAdmin=$result->getRole()==='ADMIN';
+    if($isAdmin){
+        $_SESSION['user'] = 'admin';
+        header("HTTP/ 200");
+    }else {
+        $_SESSION['user'] = $result->getId();
+        header("HTTP/ 202");
+    }
+
 } else {
     header("HTTP/ 400");
 }

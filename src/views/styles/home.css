@@ -17,8 +17,8 @@
 }
 
 li:hover{
-    background-color: rgba(255, 81, 47, 0.12);
-    border-radius: 50pt;
+
+    size: 20pt;
 }
 
 .name{
@@ -45,12 +45,8 @@ img{
 }
 
 #subline, h1 {
-    color: #f75626;
+    color: #ffffff;
     text-align: center;
     font-family: 'Poppins',sans-serif;
-
-}
-
-#dashboard {
 
 }

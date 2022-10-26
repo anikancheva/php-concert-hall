@@ -29,14 +29,14 @@ CREATE TABLE users_concerts (
 
 INSERT INTO users (first_name, last_name, _password, email, _role)
 VALUES 
-	("Peter", "Griffin", "$argon2i$v=19$m=65536,t=4,p=1$Tkp4U1FDeHJRM3R1Zzdwaw$XRE28dXzj48qZcht77D9vdxONVKH+qryva2W1nn+srU", "peter_griff@gmail.com", "ADMIN"),
-	("Joe", "Swanson", "$argon2i$v=19$m=65536,t=4,p=1$Tkp4U1FDeHJRM3R1Zzdwaw$XRE28dXzj48qZcht77D9vdxONVKH+qryva2W1nn+srU", "squirrel_911@gmail.com", "USER");
+	("Peter", "Griffin", "$argon2i$v=19$m=65536,t=4,p=1$Tkp4U1FDeHJRM3R1Zzdwaw$XRE28dXzj48qZcht77D9vdxONVKH+qryva2W1nn+srU", "test_admin@gmail.com", "ADMIN"),
+	("Joe", "Swanson", "$argon2i$v=19$m=65536,t=4,p=1$Tkp4U1FDeHJRM3R1Zzdwaw$XRE28dXzj48qZcht77D9vdxONVKH+qryva2W1nn+srU", "test_user@gmail.com", "USER");
 
 INSERT INTO concerts (artist, venue, dates, price, img)
 VALUES 
 	("Twenty One Pilots", "TD Garden", "2022-05-12", 130.00, "images/21pilots.jpeg"),
 	("Dua Lipa", "Madison Square Garden", "2022-05-21", 150.00, "images/dualipa.jpg"),
-	("Grandson", "Ultra Stadium", "2022-05-23", 90.00, "images/grandson.jpg"),
+	("Volbeat", "Ultra Stadium", "2022-05-23", 90.00, "images/volbeat.jpg"),
 	("Landa Del Rey", "Desert Festival", "2022-06-06", 100.00, "images/lanadelrey.jpg"),
 	("Paramore", "BlueHall", "2022-06-17", 120.00, "images/paramore.jpg"),
 	("Rammstein", "Germany", "2022-06-25", 160.00, "images/rammstein.jpg");

@@ -15,19 +15,19 @@ session_start();
 <body>
 <header>
     <!-- Navigation -->
-    <nav class="menu">
-        <ul>
-            <li><a href="home.php">Dashboard</a></li>
-            <?php if ( isset($_SESSION['user'])) {
-                echo '<li class="user"><a href="profile.php">Profile</a></li>
-                        <li class="user"><a href="../services/logout.php">Logout</a></li>';
+    <div class="navbar">
+        <a href="home.php">Dashboard</a>
+        <div class="right-nav">
+            <?php if (isset($_SESSION['user'])) {
+                echo '<a href="profile.php">Profile</a>
+                        <a href="../services/logout.php">Logout</a>';
             } else {
-                echo '<li class="guest"><a href="login.php">Login</a></li>
-                         <li class="guest"><a href="register.php">Register</a></li>';
+                echo '<a href="login.php">Login</a>
+                    <a href="register.php">Register</a>';
             }
             ?>
-        </ul>
-    </nav>
+        </div>
+    </div>
 </header>
 <main>
     <!-- Events List -->
