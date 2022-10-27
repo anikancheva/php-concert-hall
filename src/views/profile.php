@@ -10,7 +10,7 @@ $user=$_SESSION['username'];
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/header.css">
-    <script src="../web/validateRegister.js"></script>
+    <script src="../web/profileService.js" onload="getConcerts()"></script>
     <title>Concert Hall</title>
 </head>
 <body>
@@ -27,12 +27,9 @@ $user=$_SESSION['username'];
 </header>
 <!-- User Profile -->
 <div class="user-events">
-    <p>My events:</p>
-    <ul>
-        <li>user event 1</li>
-        <li>user event 2</li>
-    </ul>
+    <p>My upcoming events:</p>
+    <ul></ul>
 </div>
 <div>
-    <button id="editProfile" style="background-color: rgb(203, 203, 248);">Edit Profile</button>
+    <button id="edit" onclick="editView()">Edit Profile</button>
 </div>

@@ -21,10 +21,7 @@ session_start();
 </header>
 <!-- Register Form -->
 <main>
-<div class="background">
-    <div class="shape"></div>
-    <div class="shape"></div>
-</div>
+<div class="background"></div>
 <div class="register">
     <form id="regForm" action="" method="post" onsubmit="validate(event)">
         <label for="firstName">First Name:

@@ -19,16 +19,16 @@ class ConcertService
     }
 
     public function add(Concert $concert) : bool{
-        if(!$this->concertRepo->findByArtist($concert)){
+        if(!$this->concertRepo->findByArtist($concert->getArtist())){
            return $this->concertRepo->save($concert);
         }
         return false;
     }
 
-    public function remove(Concert $concert) : bool{
-        $current=$this->concertRepo->findByArtist($concert);
+    public function removeByArtist($artist) : bool{
+        $current=$this->concertRepo->findByArtist($artist);
         if($current){
-            return $this->concertRepo->delete($concert);
+            return $this->concertRepo->delete($current);
         }
         return false;
     }
@@ -40,5 +40,8 @@ class ConcertService
 
     public function getAllConcerts() : array{
        return $this->concertRepo->findAll();
+    }
+    public function find($artist) : ?Concert{
+      return  $this->concertRepo->findByArtist($artist);
     }
 }

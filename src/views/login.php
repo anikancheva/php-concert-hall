@@ -21,10 +21,7 @@ session_start();
 </header>
 <!-- Login Form -->
 <main>
-    <div class="background">
-        <div class="shape"></div>
-        <div class="shape"></div>
-    </div>
+    <div class="background"></div>
     <div class="login">
         <form id="loginForm" method="post" action="" onsubmit="validate(event)">
             <label for="email">Email:

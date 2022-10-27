@@ -9,37 +9,12 @@
 .background {
     width: 430px;
     height: 520px;
-    position: absolute;
+    position: relative;
     transform: translate(-50%, -50%);
     left: 50%;
     top: 50%;
 }
 
-.background .shape {
-    height: 200px;
-    width: 200px;
-    position: absolute;
-    border-radius: 50%;
-}
-
-.shape:first-child {
-    background: linear-gradient(
-            #ff8c78,
-            #f09819
-    );
-    left: -80px;
-    top: -80px;
-}
-
-.shape:last-child {
-    background: linear-gradient(
-            to right,
-            #ff8c78,
-            #f09819
-    );
-    right: -30px;
-    bottom: -80px;
-}
 
 form {
     height: 420px;

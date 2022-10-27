@@ -1,6 +1,7 @@
 <?php
 session_start();
-$loggedIn = isset($_SESSION['user']);
+$loggedIn = $_SESSION['user'] ?? false;
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +11,7 @@ $loggedIn = isset($_SESSION['user']);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/home.css">
     <link rel="stylesheet" href="./styles/header.css">
-    <script src="../web/loadConcerts.js" onload="getAll(<?=$loggedIn?>)"></script>
+    <script src="../web/homeView.js" onload="getAll(<?= $loggedIn ?>)"></script>
     <title>Concert Hall</title>
 </head>
 <body>
@@ -32,14 +33,16 @@ $loggedIn = isset($_SESSION['user']);
     </div>
 </header>
 <main>
-    <!-- Events List -->
-    <div>
-        <p id="headline">All your favourite artists in one place</p>
-        <p id="headline2">Find your next event here!</p>
-        <div class="events">
-            <ul id="dashboard"></ul>
-        </div>
-        <p id="prompt">If you want to see more: <a href="login.php">login</a> or <a href="register.php">register</a></p>
+    <div id="headlines">
+        <p id="hdl1">All your favourite artists in one place</p>
+        <p id="hdl2">Find your next event here!</p>
     </div>
+    <button id="addBtn" onclick="addView()" style="display: none">Add new event</button>
+    <!-- Events List -->
+    <div class="events">
+        <ul id="dashboard"></ul>
+    </div>
+    <p id="prompt">If you want to see more: <a href="login.php">login</a> or <a href="register.php">register</a></p>
+
 </main>
 </body>

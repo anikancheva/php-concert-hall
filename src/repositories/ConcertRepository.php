@@ -18,25 +18,33 @@ class ConcertRepository
         $this->PDO = $PDO;
     }
 
-    public function findById(int $id) {
+    public function findById(int $id) :?Concert {
 
         $stm= $this->PDO->prepare("SELECT * FROM concerts WHERE id=?");
         $stm->execute([$id]);
         $resultSet=$stm->fetch(PDO::FETCH_ASSOC);
 
-        $concert=new Concert($resultSet["artist"], $resultSet["venue"], $resultSet["dates"], $resultSet["price"], $resultSet["img"]);
-        return $concert;
+        if($resultSet){
+            $concert=new Concert($resultSet["artist"], $resultSet["venue"], $resultSet["dates"], $resultSet["price"], $resultSet["img"]);
+            $concert->setId($id);
+            return $concert;
+        }else {
+            return null;
+        }
+
     }
 
-    public function findByArtist(Concert $concert) : ?Concert{
+    public function findByArtist($artist) : ?Concert{
         $stm= $this->PDO->prepare("SELECT * FROM concerts WHERE artist=?");
-        $stm->execute([$concert->getArtist()]);
+        $stm->execute([$artist]);
         $resultSet=$stm->fetch(PDO::FETCH_ASSOC);
 
         if(!$resultSet){
             return null;
         }else {
-            return new Concert($resultSet["artist"], $resultSet["venue"], $resultSet["dates"], $resultSet["price"], $resultSet["img"]);
+            $found=new Concert($resultSet["artist"], $resultSet["venue"], $resultSet["dates"], $resultSet["price"], $resultSet["img"]);
+            $found->setId($resultSet["id"]);
+            return $found;
         }
     }
 
@@ -67,7 +75,11 @@ class ConcertRepository
 
     public function delete(Concert $concert) : bool
     {
-        return $this->PDO->prepare("DELETE FROM concerts WHERE id=?")->execute([$concert->getId()]);
+        if($this->PDO->prepare("DELETE FROM users_concerts WHERE concert_id=?")->execute([$concert->getId()])){
+            return $this->PDO->prepare("DELETE FROM concerts WHERE id=?")->execute([$concert->getId()]);
+        }
+        return false;
+
     }
 
     public function update(Concert $concert) : bool
