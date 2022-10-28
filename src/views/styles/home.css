@@ -79,3 +79,13 @@ img {
 #prompt a:hover{
     text-decoration: underline;
 }
+
+.adm {
+    margin-bottom: 5pt;
+    background-color: #992300;
+    color: white;
+}
+
+form {
+    border: solid 2pt #992300;
+}

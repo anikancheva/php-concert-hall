@@ -37,7 +37,25 @@ $loggedIn = $_SESSION['user'] ?? false;
         <p id="hdl1">All your favourite artists in one place</p>
         <p id="hdl2">Find your next event here!</p>
     </div>
-    <button id="addBtn" onclick="addView()" style="display: none">Add new event</button>
+    <div id="add-concert">
+        <button id="addBtn" class="adm" onclick="addView()" style="display: none">Add new event</button>
+        <form method="post" enctype="multipart/form-data" action="../services/uploadEvent.php" style="display: none">
+            <label>
+                Name: <input type="text" name="artist" placeholder="Artist/Band name"><br>
+            </label>
+            <label>
+                Venue: <input type="text" name="venue" placeholder="Where"><br>
+            </label>
+            <label>
+                Dates: <input type="date" name="dates" placeholder="When"><br>
+            </label>
+            <label>
+                Price: <input type="text" name="price" placeholder="Price"><br>
+            </label>
+                Image: <input type="file" accept="image/*"><br>
+            <input class="adm" type="submit" value="Upload">
+        </form>
+    </div>
     <!-- Events List -->
     <div class="events">
         <ul id="dashboard"></ul>
