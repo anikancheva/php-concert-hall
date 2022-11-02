@@ -28,7 +28,7 @@ $user=$_SESSION['username'];
 </header>
 <!-- User Profile -->
 <div id="user-events">
-    <p>My upcoming events:</p>
+    <p id="my-events-hdln">My upcoming events:</p>
     <p id="noEvents" style="display: none">You don't have any events yet...</p>
 </div>
 <div>

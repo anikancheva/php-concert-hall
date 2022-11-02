@@ -18,7 +18,7 @@ class UserRepository
         $this->PDO = $PDO;
     }
 
-    public function findById(int $id)
+    public function findById(int $id): User
     {
 
         $stm = $this->PDO->prepare("SELECT * FROM users WHERE id=?");
@@ -30,7 +30,7 @@ class UserRepository
         return $user;
     }
 
-    public function findByEmail(string $email)
+    public function findByEmail(string $email): ?User
     {
         $stm = $this->PDO->prepare("SELECT * FROM users WHERE email=?");
         $stm->execute([$email]);
@@ -61,11 +61,11 @@ class UserRepository
 
     }
 
-    public function updatePassword(User $user): bool
-    {
+    public function update(User $user): bool {
+
         $user->setPassword($this->hashPassword($user->getPassword()));
-        return $this->PDO->prepare("UPDATE users SET _password=? WHERE id=?")
-            ->execute([$user->getPassword(), $user->getId()]);
+        return $this->PDO->prepare("UPDATE users SET first_name=?, last_name=?, _password=? WHERE id=?")
+            ->execute([$user->getFirstName(), $user->getLastName(),$user->getPassword(), $user->getId()]);
     }
 
     public function buy(int $userId, int $concertId): bool

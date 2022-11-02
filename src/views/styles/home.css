@@ -34,7 +34,7 @@ img {
     display: block;
 }
 
-#accordionBtn {
+#accordionBtn, #buyBtn {
     border: 1pt solid #d83600;
     border-radius: 5pt;
     background: radial-gradient(#fbcb98 0%, #fca35e 100%);

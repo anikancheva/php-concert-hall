@@ -12,6 +12,13 @@ function updateDashboard(concerts, user) {
     for (let concert = 0; concert < cards; concert++) {
         let item = document.createElement('li');
 
+        let buyBtn = document.createElement('button');
+        buyBtn.textContent = 'Buy';
+        buyBtn.id = 'buyBtn';
+        buyBtn.addEventListener('click', buy);
+
+        item.appendChild(buyBtn);
+
         let artist = document.createElement('p');
         artist.textContent = concerts[concert].artist;
         artist.className = 'name';
@@ -102,4 +109,27 @@ function addView() {
     } else {
         form.style.display = 'none';
     }
+}
+
+function buy(e){
+    let concertElement=e.target.parentElement;
+    let name=concertElement.getElementsByClassName('name')[0].textContent;
+    fetch('http://localhost/php-concert-hall/src/services/buyTicket.php', {
+        method: 'POST',
+        body: JSON.stringify({name})
+    }).then(resp=> {
+        if(resp.status===401){
+            alert('You must login or register to purchase a ticket!');
+        }else if(resp.status===400){
+            alert('You have already purchased this ticket.')
+        }else if (resp.status===200){
+            success(concertElement);
+        }
+    })
+
+
+}
+
+function success(item){
+
 }

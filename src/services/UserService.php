@@ -37,38 +37,37 @@ class UserService
 
     }
 
-    public function login(string $email, string $password): false | User
+    public function login(string $email, string $password): false|User
     {
         $current = $this->userRepo->findByEmail($email);
 
-        if ($current!=null) {
+        if ($current != null) {
             if (password_verify($password, $current->getPassword())) {
                 return $current;
-            } else{
+            } else {
                 return false;
             }
-        }else{
+        } else {
             return false;
         }
 
 
     }
 
-    public function buyTicket(User $user, Concert $concert): bool
+    public function buyTicket(int $userId, string $artist): bool
     {
-        $userId = $this->findUserByEmail($user->getEmail())->getId();
-        $concertId = $this->concertRepo->findByArtist($concert)->getId();
-        if ($userId && $concertId) {
-            $this->userRepo->buy($userId, $concertId);
-            return true;
-        }
-        return false;
-
+        $concertId = $this->concertRepo->findByArtist($artist)->getId();
+        return $this->userRepo->buy($userId, $concertId);
     }
 
-    public function findUserById($id): User
+    public function updateUser(int $id, string $first, string $last, string $pass): bool
     {
-        return $this->userRepo->findById($id);
+
+        $user = $this->userRepo->findById($id);
+        $user->setFirstName($first);
+        $user->setLastName($last);
+        $user->setPassword($pass);
+        return $this->userRepo->update($user);
     }
 
     public function findUserByEmail($email): User

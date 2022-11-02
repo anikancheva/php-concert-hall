@@ -1,5 +1,55 @@
-table {
+table, th, td {
+    width: 100%;
     border: solid 2pt #992300;
-    padding: 10pt;
+    border-collapse: collapse;
+    padding: 8pt;
+    text-align: center;
+    color: #992300;
+    table-layout: fixed;
+    font-family: 'Poppins',sans-serif;
+
 }
 
+tr:hover {
+    background-color: rgba(153, 35, 0, 0.4);
+    color: #fbcb98;
+
+}
+
+th {
+    background-color: #992300;
+    color: #fbcb98;
+}
+
+#my-events-hdln, #noEvents {
+    color: #d83600;
+    font-size: 15pt;
+    font-style: italic;
+}
+
+#edit, #updateBtn {
+    margin-top: 25pt;
+    background-color: #992300;
+    color: white;
+}
+
+#noEvents {
+    text-align: center;
+}
+form {
+    background-color: rgba(153, 35, 0, 0.5);
+    padding: 20pt;
+    text-align: center;
+    color: #fbcb98;;
+    font-size: 12pt;
+    font-family: 'Poppins',sans-serif;
+}
+
+form input {
+    margin: 15pt;
+    width: 200pt;
+}
+
+form p {
+    margin-top: -10pt;
+}
