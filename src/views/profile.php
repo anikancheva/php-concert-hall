@@ -1,7 +1,8 @@
 <?php
 session_start();
 
-$user=$_SESSION['username'];
+$user = $_SESSION['username'];
+$admin = $_SESSION['user'] === 1;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,17 +21,22 @@ $user=$_SESSION['username'];
     <div class="navbar">
         <a href="home.php">Dashboard</a>
         <div class="right-nav">
-            <a id="greeting">Hello, <?=$user?>!</a>
+            <a id="greeting">Hello, <?= $user ?>!</a>
             <a href="profile.php">Profile</a>
             <a href="../services/logout.php">Logout</a>
         </div>
     </div>
 </header>
 <!-- User Profile -->
-<div id="user-events">
-    <p id="my-events-hdln">My upcoming events:</p>
-    <p id="noEvents" style="display: none">You don't have any events yet...</p>
-</div>
-<div>
+<?php
+    if(!$admin) {
+     echo '<div id="user-events">
+        <p id="my-events-hdln">My upcoming events:</p>
+         <p id="noEvents" style="display: none">You don\'t have any events yet...</p>
+        </div>';
+    }
+?>
+
+<div id="editProfile">
     <button id="edit" onclick="editView()">Edit Profile</button>
 </div>

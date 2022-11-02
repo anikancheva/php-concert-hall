@@ -17,8 +17,6 @@ function updateDashboard(concerts, user) {
         buyBtn.id = 'buyBtn';
         buyBtn.addEventListener('click', buy);
 
-        item.appendChild(buyBtn);
-
         let artist = document.createElement('p');
         artist.textContent = concerts[concert].artist;
         artist.className = 'name';
@@ -52,7 +50,7 @@ function updateDashboard(concerts, user) {
             moreBtn.id = 'accordionBtn';
             moreBtn.addEventListener('click', showMore);
 
-            item.append(artist, image, venue, dates, price, moreBtn);
+            item.append(buyBtn, artist, image, venue, dates, price, moreBtn);
         }
 
         list.appendChild(item);
@@ -131,5 +129,6 @@ function buy(e){
 }
 
 function success(item){
-
+    item.style.backgroundColor='rgba(252,199,94,0.67)';
+    setTimeout(()=>item.style.backgroundColor='transparent', 1000);
 }

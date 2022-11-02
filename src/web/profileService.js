@@ -6,8 +6,8 @@ function getConcerts() {
 
 function editView() {
     let editForm = document.createElement('form');
-    editForm.method='POST';
-    editForm.onsubmit=validate;
+    editForm.method = 'POST';
+    editForm.onsubmit = validate;
     editForm.innerHTML = 'First Name:<br>\n' +
         '            <input type="text" name="firstName" value="">\n' +
         '        <br>\n' +
@@ -25,11 +25,15 @@ function editView() {
         '        <br>' +
         '       <p id="errConfPass" style="display: none; color: red">* Passwords don\'t match!</p>\n' +
         '           <input id="updateBtn" type="submit" value="Update">';
-    document.getElementById('user-events').replaceChildren(editForm);
-    document.getElementById('edit').style.display = 'none';
+
+    let userDiv = document.getElementById('user-events');
+    if (userDiv) {
+        userDiv.style.display = 'none';
+    }
+    document.getElementById('editProfile').replaceChildren(editForm);
 }
 
-function validate(e){
+function validate(e) {
     e.preventDefault();
     let form = new FormData(document.querySelector('form'));
     let first = form.get('firstName');
@@ -86,7 +90,7 @@ function editProfile(userData) {
     });
 
     alert('You successfully updated you personal information!');
-    window.location.href='../views/profile.php';
+    window.location.href = '../views/profile.php';
 }
 
 function updateTable(concerts) {

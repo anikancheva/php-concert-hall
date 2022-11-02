@@ -8,6 +8,7 @@
     font-size: 10pt;
     font-family: 'Poppins', sans-serif;
     color: #d83600;
+    transition: background-color 0.4s;
 
 }
 
@@ -43,10 +44,11 @@ img {
     margin-top: 5pt;
 }
 
-#accordionBtn:hover {
+#accordionBtn:hover, #buyBtn:hover {
     color: #992300;
     border-color: #992300;
 }
+
 
 #hdl1, #hdl2 {
     color: #d83600;

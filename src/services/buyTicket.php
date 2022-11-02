@@ -7,9 +7,6 @@ $_POST = json_decode(file_get_contents("php://input"), true);
 
 if(isset($_SESSION['user'])){
     $userId=$_SESSION['user'];
-    if($userId==='admin'){
-        $userId=1;
-    }
     $artist= $_POST['name'];
 
     try {

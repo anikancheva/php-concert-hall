@@ -38,7 +38,9 @@ th {
 }
 form {
     background-color: rgba(153, 35, 0, 0.5);
+    margin-top: 10pt;
     padding: 20pt;
+    border: solid 1pt rgba(153, 35, 0, 0.86);
     text-align: center;
     color: #fbcb98;;
     font-size: 12pt;
