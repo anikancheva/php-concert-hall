@@ -88,6 +88,14 @@ img {
     color: white;
 }
 
-form {
-    border: solid 2pt #992300;
+form, form input {
+    color: #992300;
+
+}
+
+form input{
+   margin: 5pt;
+    border: solid 1pt #992300;
+    text-align: center;
+    font-style: italic;
 }
