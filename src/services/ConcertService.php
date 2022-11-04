@@ -18,9 +18,10 @@ class ConcertService
         $this->concertRepo = $concertRepo;
     }
 
-    public function add(Concert $concert) : bool{
-        if(!$this->concertRepo->findByArtist($concert->getArtist())){
-           return $this->concertRepo->save($concert);
+    public function addNewConcert(array $data, string $imgURL) : bool{
+        if(!$this->concertRepo->findByArtist($data[0])){
+            $newConcert=new Concert($data[0], $data[1], $data[2], $data[3], $imgURL);
+           return $this->concertRepo->save($newConcert);
         }
         return false;
     }

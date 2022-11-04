@@ -52,7 +52,7 @@ $loggedIn = $_SESSION['user'] ?? false;
             <label>
                 Price: <input type="text" name="price" placeholder="Price"><br>
             </label>
-                Image: <input type="file" accept="image/*"><br>
+                Image: <input type="file" name="image" "><br>
             <input class="adm" type="submit" value="Upload">
         </form>
     </div>
