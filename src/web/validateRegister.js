@@ -61,14 +61,15 @@ function validate(e) {
 }
 
 function submit(body) {
-    let regRequest = new XMLHttpRequest();
-    regRequest.open('POST', '../services/register.php');
-    regRequest.onreadystatechange = function () {
-        if (regRequest.readyState === 4 && regRequest.status===200) {
-            window.location.href = "../views/home.php";
-        }else if(regRequest.readyState === 4 && regRequest.status===400){
-            document.getElementById('userExists').style.display = '';
-        }
-    }
-    regRequest.send(JSON.stringify(body));
+    fetch('../services/register.php', {
+        method: 'POST',
+        body: JSON.stringify(body)
+    })
+        .then(resp=> {
+            if(resp.status===200){
+                window.location.href = "../views/home.php";
+            }else if(resp.status===400){
+                document.getElementById('userExists').style.display = '';
+            }
+        })
 }

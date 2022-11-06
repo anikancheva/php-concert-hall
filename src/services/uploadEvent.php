@@ -13,7 +13,6 @@ if ($img['size'] > 600000 || !$extension) {
     move_uploaded_file($img['tmp_name'], '../views/images/' . $img['name']);
     if(concertService->addNewConcert($data, 'images/' . $img['name'])){
         header("HTTP/ 200");
-        header("Location: ../views/home.php");
     }else {
         header("HTTP/ 401");
     }

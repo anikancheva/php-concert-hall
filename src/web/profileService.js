@@ -113,7 +113,7 @@ function updateTable(concerts) {
             tdDates.textContent = c.dates;
 
             let tdPrice = document.createElement('td');
-            tdPrice.textContent = c.price;
+            tdPrice.textContent = "$" + c.price;
 
             let tdImg = document.createElement('td');
             let img = document.createElement('img');

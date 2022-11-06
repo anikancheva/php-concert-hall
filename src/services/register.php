@@ -18,6 +18,7 @@ $user = new User($fName, $lName, $email, $password, "USER");
 $result=userService->register($user);
 if ($result) {
     $_SESSION['user']=$result->getId();
+    $_SESSION['username'] = $result->getFirstName();
     header("HTTP/ 200");
 } else {
     header("HTTP/ 400");

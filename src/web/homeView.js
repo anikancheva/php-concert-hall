@@ -8,7 +8,7 @@ function getAll(loggedUser) {
 function updateDashboard(concerts, user) {
     let list = document.getElementById("dashboard");
     list.replaceChildren();
-    let cards = user ? concerts.length : 3;
+    let cards = user ? concerts.length : 4;
     for (let concert = 0; concert < cards; concert++) {
         let item = document.createElement('li');
 
@@ -107,6 +107,7 @@ function addView() {
     } else {
         form.style.display = 'none';
     }
+
 }
 
 function buy(e){

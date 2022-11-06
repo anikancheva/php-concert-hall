@@ -1,7 +1,7 @@
 #dashboard li {
     marker: none;
     display: inline-block;
-    margin: 40pt;
+    margin: 20pt;
     padding: 10pt 10pt;
 
     text-align: center;
@@ -15,6 +15,8 @@
 #dashboard {
     text-align: center;
     background-color: rgba(255, 255, 255, 0.50);
+    column-count: 4;
+
 }
 
 #dashboard li p {
@@ -29,11 +31,14 @@
 }
 
 img {
-    height: 150pt;
+    width: 100pt;
+    height: 120pt;
     border: 3pt solid rgb(216, 54, 0, 0.50);
     border-radius: 20pt;
     display: block;
+
 }
+
 
 #accordionBtn, #buyBtn {
     border: 1pt solid #d83600;

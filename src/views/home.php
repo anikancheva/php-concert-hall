@@ -1,7 +1,6 @@
 <?php
 session_start();
 $loggedIn = $_SESSION['user'] ?? false;
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,6 +11,7 @@ $loggedIn = $_SESSION['user'] ?? false;
     <link rel="stylesheet" href="./styles/home.css">
     <link rel="stylesheet" href="./styles/header.css">
     <script src="../web/homeView.js" onload="getAll(<?= $loggedIn ?>)"></script>
+    <script src="../web/uploadEvent.js"></script>
     <title>Concert Hall</title>
 </head>
 <body>
@@ -39,7 +39,7 @@ $loggedIn = $_SESSION['user'] ?? false;
     </div>
     <div id="add-concert">
         <button id="addBtn" class="adm" onclick="addView()" style="display: none">Add new event</button>
-        <form method="post" enctype="multipart/form-data" action="../services/uploadEvent.php" style="display: none">
+        <form method="post" enctype="multipart/form-data" action="" onsubmit="uploadEvent(event)" style="display: none">
             <label>
                 Name: <input type="text" name="artist" placeholder="Artist/Band name"><br>
             </label>

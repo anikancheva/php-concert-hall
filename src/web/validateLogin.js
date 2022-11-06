@@ -35,18 +35,15 @@ function validate(e) {
 }
 
 function submit(body) {
-    let loginReq = new XMLHttpRequest();
-    loginReq.open('POST', '../services/login.php');
-    loginReq.onreadystatechange = function () {
-        if (loginReq.readyState === 4) {
-            if(loginReq.status === 200){
+    fetch('../services/login.php', {
+        method: 'POST',
+        body: JSON.stringify(body)
+    })
+        .then(resp=> {
+            if(resp.status===200){
                 window.location.href = "../views/home.php";
-            } else if (loginReq.status === 400){
+            }else if(resp.status===400){
                 document.getElementById('noUser').style.display = '';
             }
-        }
-
-
-    }
-    loginReq.send(JSON.stringify(body));
+        })
 }
