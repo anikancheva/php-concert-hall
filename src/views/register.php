@@ -51,4 +51,3 @@ session_start();
 </div>
 </main>
 </body>
-<!-- TODO add JS validation -->
