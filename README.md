@@ -1,6 +1,6 @@
 # php-concert-hall
 
-Web application for purchasing events tickets.
+Web application for events tickets.
 A user can register/login in order to buy a ticket and they can also view tickets they had already purchased.
 The database has two initial users registered to demonstrate the functionality. 
 Login credentials: -admin-> test_admin@gmail.com pass: 123; -user-> test_user@gmail.com pass:123; 
